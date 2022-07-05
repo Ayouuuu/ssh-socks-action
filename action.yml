@@ -1,5 +1,9 @@
 name: 'ssh-socks-action'
+author: 'Ayou'
 description: 'Setup ssh socks5 proxy that use proxy-connect'
+branding:
+  icon: terminal
+  color: gray-dark
 inputs:
   proxy_username:
     description: 'username'
