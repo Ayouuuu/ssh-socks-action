@@ -1,3 +1,6 @@
+# ssh-socks-action
+Use Socks5 proxy to connect to ssh remote servers with authentication support!
+
 ## Example usage
 
 ```yaml
