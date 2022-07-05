@@ -1,0 +1,50 @@
+name: 'ssh-socks-action'
+description: 'Setup ssh socks5 proxy that use proxy-connect'
+inputs:
+  proxy_username:
+    description: 'username'
+    required: true
+  proxy_server:
+    description: 'your server host or ip address'
+    required: true
+  proxy_port:
+    description: 'server port'
+    required: true
+  proxy_socks5_pwd:
+    description: 'socks5 protocol user password'
+    required: false
+  username:
+    description: 'ssh username'
+    required: true
+    default: 'root'
+  host:
+    description: 'ssh host or ip address'
+    required: true
+  port:
+    description: 'ssh port'
+    required: true
+    default: '21'
+  password:
+    description: 'ssh password'
+    required: true
+  key:
+    description: "ssh key"
+    required: false
+  run:
+    description: 'commands to run'
+    required: false
+    default: 'whoami'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    PROXY_SERVER: ${{ inputs.proxy_server }}
+    PROXY_PROT: ${{ inputs.proxy_port }}
+    PROXY_SOCKS5_PWD: ${{ inputs.proxy_socks5_pwd }}
+    PROXY_USERNAME: ${{ inputs.proxy_username }}
+    RUN: ${{ inputs.run }}
+    KEY: ${{ inputs.key }}
+    USERNAME: ${{ inputs.username }}
+    PASSWORD: ${{ inputs.password }}
+    PORT: ${{ inputs.port }}
+    HOST: ${{ inputs.host }}
